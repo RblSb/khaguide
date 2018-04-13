@@ -6,7 +6,7 @@ Its intended audience is existing programmers who don't necessarily know game pr
 
 [View the Guide Online](docs/book.md)
 
-[Live Demo](docs/build/html5)
+[Live Demo](https://rblsb.github.io/khaguide/build/html5)
 
 # Project Structure
 
