@@ -1,3 +1,3 @@
-[submodule "Empty"]
-	path = Empty
-	url = ./Empty
+[submodule "projects/Kha"]
+	path = projects/Kha
+	url = https://github.com/Kode/Kha.git
