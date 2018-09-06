@@ -17,8 +17,7 @@ Its intended audience is existing programmers who don't necessarily know game pr
     - [Is Kha related to OpenFL or NME? Will one give me better performance? Will I be locked in?](#is-kha-related-to-openfl-or-nme-will-one-give-me-better-performance-will-i-be-locked-in)
     - [Is Kha better than Unity3D?](#is-kha-better-than-unity3d)
 - [Project Setup](#project-setup)
-  - [Project Setup](#project-setup-1)
-    - [How should I get started with Kha?](#how-should-i-get-started-with-kha)
+  - [How should I get started with Kha?](#how-should-i-get-started-with-kha)
   - [Build Options](#build-options)
   - [Updating Kha](#updating-kha)
   - [Kode Studio](#kode-studio)
@@ -160,9 +159,7 @@ If you want to mix Kha and Unity, or Haxe and Unity, that is also an option: Kha
 
 # Project Setup
 
-## Project Setup
-
-### How should I get started with Kha?
+## How should I get started with Kha?
 
 There are standalone way to work with Kha. This allows a project's whole environment to be maintained without accidentially losing important dependencies, and so it is less dependent on the "Haxe ecosystem".
 
@@ -211,16 +208,16 @@ This script brings up a prompt for target and options like this, and then runs k
 
     khamake
         -> visual studio solution (uncompiled)
-            
+
     khamake --compile
         -> visual studio solution (run compiler after)
-            
+
     khamake --compile --visualstudio vs2013
         -> visual studio solution (run visual studio 2013 instead of other versions)
-            
+
     khamake html5
         -> html/js
-            
+
     khamake flash
         -> flash swf
 
@@ -375,16 +372,22 @@ The Empty project already has Kha configure some things about the display and up
 package;
 
 import kha.Scheduler;
+import kha.Framebuffer;
+import kha.Window;
 import kha.System;
 
 class Main {
-    public static function main() {
-        System.init({title:"Empty", width:640, height:480}, initialized);
+    public static function main() : Void {
+        System.start({title:"Empty", width:640, height:480}, initialized);
     }
-    
-    private static function initialized(): Void {
+
+    private static function initialized(window : Window) : Void {
         var game = new Empty();
-        System.notifyOnRender(game.render);
+        System.notifyOnFrames(
+            function(fbs : Array<Framebuffer>) {
+                game.render(fbs[0]);
+            }
+        );
         Scheduler.addTimeTask(game.update, 0, 1 / 60);
     }
 }

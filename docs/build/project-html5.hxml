@@ -1,6 +1,6 @@
--cp /Users/digital/Sites/projects/dev/git/Kha/Sources
--cp /Users/digital/Sites/projects/dev/git/Kha/Backends/HTML5
--cp /Users/digital/Desktop/txt/artices/khaguide/projects/Sources
+-cp /Users/digital/Sites/projects/dev/git/khaguide/projects/Kha/Sources
+-cp /Users/digital/Sites/projects/dev/git/khaguide/projects/Kha/Backends/HTML5
+-cp /Users/digital/Sites/projects/dev/git/khaguide/projects/Sources
 -D sys_g1
 -D sys_g2
 -D sys_g3
@@ -21,7 +21,6 @@
 -D kha_html5
 -D kha_html5_js
 -D kha
--D kha_version=1611
+-D kha_version=1807
 -js html5/kha.js
--debug
 -main Main

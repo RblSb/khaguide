@@ -144,6 +144,14 @@
 			"type": "sound"
 		},
 		{
+			"name": "explode9",
+			"files": [
+				"explode9.ogg",
+				"explode9.mp3"
+			],
+			"type": "sound"
+		},
+		{
 			"name": "hit",
 			"files": [
 				"hit.ogg",
@@ -164,14 +172,6 @@
 			"files": [
 				"music.ogg",
 				"music.mp3"
-			],
-			"type": "sound"
-		},
-		{
-			"name": "explode9",
-			"files": [
-				"explode9.ogg",
-				"explode9.mp3"
 			],
 			"type": "sound"
 		},

@@ -5,90 +5,7 @@ This guide is intended to give you a "real-world" introduction to problems and t
 Its intended audience is existing programmers who don't necessarily know game programming or the Haxe language, and experienced game programmers who would like to see a whole project workflow in action.
 
 ### Table of Contents
-- [About Kha and Haxe](#about-kha-and-haxe)
-  - [What is Haxe?](#what-is-haxe)
-  - [What is Kha?](#what-is-kha)
-    - [I don't understand what that means?](#i-dont-understand-what-that-means)
-    - [Where does Kha come from?](#where-does-kha-come-from)
-  - [What is the benefit?](#what-is-the-benefit)
-  - [What weaknesses does Haxe have?](#what-weaknesses-does-haxe-have)
-  - [Why is Kha special?](#why-is-kha-special)
-  - [Kha versus OpenFL and Unity3D](#kha-versus-openfl-and-unity3d)
-    - [Is Kha related to OpenFL or NME? Will one give me better performance? Will I be locked in?](#is-kha-related-to-openfl-or-nme-will-one-give-me-better-performance-will-i-be-locked-in)
-    - [Is Kha better than Unity3D?](#is-kha-better-than-unity3d)
-- [Project Setup](#project-setup)
-  - [Project Setup](#project-setup-1)
-    - [How should I get started with Kha?](#how-should-i-get-started-with-kha)
-  - [Build Options](#build-options)
-  - [Updating Kha](#updating-kha)
-  - [Kode Studio](#kode-studio)
-  - [HaxeDevelop](#haxedevelop)
-  - [IntelliJ](#intellij)
-  - [Getting around in Haxe](#getting-around-in-haxe)
-- [Kha API 1: Main class, System](#kha-api-1-main-class-system)
-  - [Main.hx](#mainhx)
-  - [Empty.hx](#emptyhx)
-  - [System](#system)
-  - [Scheduler](#scheduler)
-  - [Framebuffer](#framebuffer)
-- [Testing and Publishing the Project](#testing-and-publishing-the-project)
-  - [Testing the Project](#testing-the-project)
-  - [Publishing the Project](#publishing-the-project)
-    - [HTML5](#html5)
-    - [Desktop](#desktop)
-    - [Flash](#flash)
-    - [Build Details](#build-details)
-- [Kha API 2: Display](#kha-api-2-display)
-  - [Empty.hx](#emptyhx-1)
-  - [What is "backbuffer.g1"?](#what-is-backbufferg1)
-  - [Why is there a begin() and end()?](#why-is-there-a-begin-and-end)
-- [API: Graphics2, Scheduler, and Moving Rectangles](#api-graphics2-scheduler-and-moving-rectangles)
-  - [Timing in Kha](#timing-in-kha)
-    - [Period vs. Duration](#period-vs-duration)
-    - [realTime() and time()](#realtime-and-time)
-    - [Why atomic timing is useful](#why-atomic-timing-is-useful)
-  - [Drawing rectangles](#drawing-rectangles)
-  - [Scaling](#scaling)
-  - [The plane's data structure and algorithms](#the-planes-data-structure-and-algorithms)
-    - [Empty.hx](#emptyhx-2)
-- [Bombs Away!](#bombs-away)
-  - [Empty.hx](#emptyhx-3)
-- [Drawing a Canyon](#drawing-a-canyon)
-  - [Tilemap.hx](#tilemaphx)
-  - [Empty.hx](#emptyhx-4)
-- [Bomb-Canyon Collision](#bomb-canyon-collision)
-  - [Empty.hx](#emptyhx-5)
-- [Rock Fall Behavior](#rock-fall-behavior)
-  - [Empty.hx](#emptyhx-6)
-- [API 5: Text and khafile.js](#api-5-text-and-khafilejs)
-  - [khafile.js](#khafilejs)
-  - [Code changes](#code-changes)
-    - [Empty.hx](#emptyhx-7)
-- [Completing the game loop](#completing-the-game-loop)
-  - [Empty.hx](#emptyhx-8)
-- [API 6: Sprite Assets](#api-6-sprite-assets)
-  - [BoundsData.hx](#boundsdatahx)
-  - [Drawing Plane, Blimp, and Bomb](#drawing-plane-blimp-and-bomb)
-  - [Smoothing the Walls](#smoothing-the-walls)
-  - [Add a Particle](#add-a-particle)
-  - [Bitmap Font](#bitmap-font)
-  - [Why use a single image for many sprites?](#why-use-a-single-image-for-many-sprites)
-  - [What if I want to upgrade to Graphics4 later?](#what-if-i-want-to-upgrade-to-graphics4-later)
-  - [Empty.hx](#emptyhx-9)
-- [API 7: Sound Effects](#api-7-sound-effects)
-  - [Sound](#sound)
-  - [audio1.Audio](#audio1audio)
-  - [audio1.AudioChannel](#audio1audiochannel)
-  - [Empty.hx](#emptyhx-10)
-- [Last Thoughts](#last-thoughts)
-- [Troubleshooting](#troubleshooting)
-  - [I got an error, but who should I ask about it?](#i-got-an-error-but-who-should-i-ask-about-it)
-  - [Debugging Performance Issues](#debugging-performance-issues)
-  - [Build and Asset Problems](#build-and-asset-problems)
-  - [HTML5 Builds](#html5-builds)
-- [Contributing to the Kha Guide](#contributing-to-the-kha-guide)
-  - [Common Technical Writing Practices](#common-technical-writing-practices)
-  - [Style](#style)
+$$tableOfContents()
 
 # About Kha and Haxe
 
@@ -160,9 +77,7 @@ If you want to mix Kha and Unity, or Haxe and Unity, that is also an option: Kha
 
 # Project Setup
 
-## Project Setup
-
-### How should I get started with Kha?
+## How should I get started with Kha?
 
 There are standalone way to work with Kha. This allows a project's whole environment to be maintained without accidentially losing important dependencies, and so it is less dependent on the "Haxe ecosystem".
 
@@ -211,16 +126,16 @@ This script brings up a prompt for target and options like this, and then runs k
 
     khamake
         -> visual studio solution (uncompiled)
-            
+
     khamake --compile
         -> visual studio solution (run compiler after)
-            
+
     khamake --compile --visualstudio vs2013
         -> visual studio solution (run visual studio 2013 instead of other versions)
-            
+
     khamake html5
         -> html/js
-            
+
     khamake flash
         -> flash swf
 
