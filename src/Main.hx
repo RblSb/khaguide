@@ -22,7 +22,7 @@ class Main {
 		return File.getContent("../" + link);
 	}
 
-	function tableOfContents(resolve:String->Dynamic):String {
+	function tableOfContents(data:String):String {
 		var data = this.data;
 		var start = data.indexOf("$$tableOfContents");
 		if (start != -1) data = data.substr(start);
@@ -51,11 +51,11 @@ class Main {
 			//remove "# " block
 			var name = ~/^#+ ?/.replace(line, "");
 
-			//make link without punctuation chars
-			var link = ~/[^A-z0-9 _-]/g.replace(name, "");
+			//make link without punctuation chars, but with "-" and "_"
+			var link = ~/[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\.\/:;<=>?@\[\]^`{|}~]/g.replace(name, "");
 			//replace spaces with dashes
 			var link = ~/ /g.replace(link, "-");
-			link = link.toLowerCase();
+			link = toLowerCase(link);
 
 			//add "-Num" postfix for repeated links
 			var ereg = new EReg("(#" + link + ")", "");
@@ -67,6 +67,17 @@ class Main {
 		//remove latest line break
 		table = table.substr(0, table.length - 1);
 		return table;
+	}
+
+	//special only for A-Z
+	function toLowerCase(s:String):String {
+		var buffer = new StringBuf();
+		for (i in 0...s.length) {
+			var code = s.charCodeAt(i);
+			if (code > 64 && code < 91) buffer.addChar(code + 32);
+			else buffer.addChar(code);
+		}
+		return buffer.toString();
 	}
 
 	function getMatches(ereg:EReg, input:String, index = 0):Array<String> {
